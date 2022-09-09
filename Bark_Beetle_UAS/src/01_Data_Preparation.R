@@ -1,5 +1,5 @@
 #######################################################
-# ips-map: Detection of bark beetle infestation in
+# Bark_Beetle_UAS: Detection of bark beetle infestation in
 # spruce plantations using multispectral drone images
 #
 # 01 Data Preparation
@@ -11,7 +11,7 @@
 
 # set working directory
 # adapt to your local directory where the project is stored.
-wd = "~/ips-map"
+wd = "~/Bark_Beetle_UAS"
 setwd(wd)
 
 #######################################################

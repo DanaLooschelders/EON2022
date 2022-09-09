@@ -1,5 +1,5 @@
 ######################################################
-# ips-map: Detection of bark beetle infestation in
+# Bark_Beetle_UAS: Detection of bark beetle infestation in
 # spruce plantations using multispectral drone images
 #
 # 05 Validation Sampling
@@ -11,13 +11,12 @@
 
 # set working directory
 # adapt to your local directory where the project is stored.
-wd = "~/ips-map"
+wd = "~/Bark_Beetle_UAS"
 setwd(wd)
 
 ######################################################
 # References
 #####################################################
-
 # Stephen V. Stehman, Giles M. Foody: Key issues in rigorous accuracy assessment of land cover products,
 # Remote Sensing of Environment,Volume 231,2019,111199,ISSN 0034-4257, https://doi.org/10.1016/j.rse.2019.05.018
 #
