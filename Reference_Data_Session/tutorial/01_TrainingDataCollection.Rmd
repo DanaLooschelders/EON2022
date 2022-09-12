@@ -27,7 +27,7 @@ library(kableExtra)
 # Data sets
 
 In this tutorial we will work with a Sentinel-2 scene from 18/06/2022 from the National Park, Harz. We will also use the boundary of the National Park to define our study area. Before we can start you may download the S2 Scene from the following link:
-[S2-download](https://cloud.hawk.de/index.php/s/gyPKzMYP63tdQKZ/download/S2B_MSIL2A_20220618T102559_N0400_R10_resampled_harz_np.tif). Place this file into the data folder of this tutorial. 
+[S2-download](https://cloud.hawk.de/index.php/s/Sn2f8bg8GQEqJXR/download/S2B_MSIL2A_20220618T102559_N0400_R10_resampled_harz_np.tif). Place this file into the data folder of this tutorial. 
 
 ```{r dataimport, cache=TRUE}
 #Import the boundary of the n
