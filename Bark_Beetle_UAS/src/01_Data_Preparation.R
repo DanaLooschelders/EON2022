@@ -27,6 +27,7 @@ if (!require("devtools")) install.packages("devtools")
 if (!require("randomForest")) install.packages("randomForest")
 if (!require("MLmetrics")) install.packages("MLmetrics")
 if (!require("reshape")) install.packages("reshape")
+if (!require("stars")) install.packages("stars")
 
 #######################################################
 # Importing libraries
@@ -40,10 +41,16 @@ library(rgdal)
 #######################################################
 
 tf = tempfile()
-url = "https://owncloud.gwdg.de/index.php/s/pibHs73SQS9czs1/download"
-download.file(url, tf, mode = 'wb')
+url = "https://owncloud.gwdg.de/index.php/s/IBMuTMMnsAkDs1R/download"
+
+# on Windows use:
+download.file(url, tf, method = 'wininet', mode = 'wb')
+
+# on other OS use:
+# download.file(url, tf,mode = 'wb')
+
 files = unzip( tf , exdir = "./data" )
-# here are your files
+# here are your files:
 files
 
 UAS_image_blue_band1 = raster("./data/subset_RedEdge_Mission.tif", band = 1)

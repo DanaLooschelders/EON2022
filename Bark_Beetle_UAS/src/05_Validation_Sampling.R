@@ -28,14 +28,14 @@ library(dplyr)
 #######################################################
 # Prepare data
 #######################################################
-set.seed(123)
+set.seed(1234)
 
 # Read the classified vector polygons
 ThematicVectorLayer = st_read(dsn="./data/tree_polygons_classified_nn.gpkg")
 
 # Define sampling frame
 MaskVectorLayer = st_read(dsn="./data/subset_Extent_buf.gpkg")
-SampleSize = 30  
+SampleSize = 40  
 ThematicRast = st_rasterize(ThematicVectorLayer["C_ID"], dx = 0.20, dy =0.20)
 
 spdf = as_Spatial(MaskVectorLayer)
