@@ -43,7 +43,10 @@ s2 <-raster::mask(s2,np_boundary)
 
 # Anaylsing the spectral variablity within the study area
 
+
 If we have no access to prior information on our target variable in the study area we can use the spectral variability as a proxy for the variability of the target variable. By using the spectral variability as a sampling criterion we also ensure, that we cover the spectral range with our sampling.
+
+## Dimension reduction (PCA)
 
 In a fist step we reduce the dimensions of the 9 Sentinel-2 bands while maintaining most of the information, using a principal component analysis (PCA).
 
@@ -57,9 +60,16 @@ ggRGB(pca$map,1,2,3, stretch="lin", q=0)
 summary(pca$model)
 ```
 
-From the output of the PCA we see that we can capture 92% of the variability with the two components. Thus we will only use the PC1 and PC2 for the subsequent analysis.
+From the output of the PCA we see that we can capture 92% of the variability
+with the first two components. Thus we will only use the PC1 and PC2 for the 
+subsequent analysis.
 
-In the next step we run an unsupervised classification of the PC1 and PC2 to get a clustered map. For the unsupervised classification we need to take a decison on the number of classes/clusters to be created. Here we will take n=5 classes. However, depending on the target variable this value need to be adjusted.
+## Unsupervised clustering
+
+In the next step we run an unsupervised classification of the PC1 and PC2 to get
+a clustered map. For the unsupervised classification we need to take a decision
+on the number of classes/clusters to be created. Here we will take n=5 classes.
+However, depending on the target variable this value need to be adjusted.
 
 ```{r unsupervised}
 
@@ -99,7 +109,7 @@ kable(samples@data[c('x','y','class')], caption='Training plot list') %>%
   kable_styling(fixed_thead = T) %>% scroll_box(height = "400px")
 ```
 
-# Implement a plot design and extract the pixel values at the samples
+## Implement a plot design
 
 ```{r plotDesign}
 # Create a training data set by extracting the mean value of all pixels touching
@@ -111,7 +121,7 @@ mapview(train, zcol="class",
   mapview(np_boundary,alpha.regions = 0.2, aplha = 1)
 ```
 
-# Check the pixel value range from the sample and the image
+# Compare the pixel value range between the sample and the image
 
 ```{r checkRange}
 image.sample<-raster::sampleRandom(s2,size=100000)
